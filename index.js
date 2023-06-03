@@ -22,6 +22,8 @@ console.log(typeof box6);
 
 let box7 = 10 +undefined;
 console.log(box7);
+console.log(typeof box7);
 
 const motto = 'У цілого війська девіз був один: "За волю, за рідну країну!" (Леся Українка)'
 console.log(motto);
+console.log(typeof motto);
