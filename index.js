@@ -10,6 +10,8 @@ console.log('перша чверть');
     console.log('третя чверть');
 } else if (min > 45 && min <= 60) {
     console.log('четверта чверть');
+} else if (min < 0 || min > 60 || typeof min !== 'number') {
+    console.log('Трапилась помилка');
 }
 
 
@@ -18,22 +20,24 @@ console.log('перша чверть');
 let num1 = 70;
 let num2 = 25;
 
-if (num2 > num1) {
-    console.log(num2 > num1);
+if (num1 > num2) {
+    console.log('перше число більше: ' + num1);
+} else if (num2 > num1) {
+    console.log('друге число більше: ' + num2);
+} else if (num2 === num1) {
+    console.log('Числа рівні');
 } else {
-    console.log(num1 > num2);
-} 
+    console.log('Щось не так');
+}
 
 // задача 3
 
 let year = 2023;
 
-if (year % 4 && year % 400) {
-    console.log('високосний рік');
-} else if (year % 400) {
-    console.log('високосний рік');
+if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    console.log(year + ' - високосний рік');
 } else {
-    console.log('невисокосний рік');
+    console.log(year + ' - невисокосний рік');
 }
 
 // задача 4
@@ -42,7 +46,7 @@ let mini = 120;
 let max = 2345;
 let num = 56;
 
-if (num <= 2345 && num >= 120) {
+if (num <= max && num >= mini) {
     console.log('В діапазоні');
 } else {
     console.log('Поза діапазоном');
@@ -50,5 +54,27 @@ if (num <= 2345 && num >= 120) {
 
 // задача 5
 
-let pen = m;
-let note = k;
+let people = 65;
+let pen = 100;
+let note = 100;
+
+if (pen >= people && note >= people) {
+    console.log('Так, буде нагорода');
+} else {
+    console.log('Ні, нагороди не буде');
+}
+
+// задача 6
+
+let age = 58;
+let benefit = true;
+
+if (age < 6) {
+    console.log('безкоштовний вхід');
+} else if (age >= 6 && age <= 12) {
+    console.log('10$');
+} else if (age > 12 && benefit === false) {
+    console.log('20$');
+} else if (age > 12 && benefit === true) {
+console.log('-50%');
+}
