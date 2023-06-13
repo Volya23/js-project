@@ -1,35 +1,22 @@
-// let password = 'qwerty123';
+/*const teacher = {
+    name: 'МарьІванна',
+    nickname: 'Snowman',
+    subject: 'математика',
+    teach: function () {
+        return 'I am teaching';
+    }
 
-//варіант 1
-
-/*let userpassword = prompt ('Введіть свій пароль')
-while (userpassword != password) {
-    userpassword = prompt ('Невірний пароль! Введіть ще раз!')
 }*/
-
- // варіант 2
-
- /* while (true) {
-    let userpass = prompt ('Введіть свій пароль');
-    if (userpass === password) {
-        break;
-    }
- } */
-
-function factorial (number) {
-    if (number < 0) {
-        return null;
-    }
-
-    if (number === 0 || number === 1) {
-        return 1;
-    }
-
-    let result = 1;
-    for (let i = 1; i <= number; i++) {
-        result *=1;
-    }
-    return result;
-}
-
  
+function Country(name, population, capital, area) {
+    this.name = name;
+    this.population = population;
+    this.capital = capital;
+    this.area = area;
+
+    this.getDensity = function() {
+        return this.population / this.area;
+    }
+}
+const Ukraine = new Country('Ukraine', 36744636, 'Kyiv', 603628);
+console.log(Ukraine.getDensity());
