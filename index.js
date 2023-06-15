@@ -1,38 +1,67 @@
-// task 1
+//Дано масив [3, 6, 8, 2, 3, 5, 1]. Напишіть функцію, яка приймає масив в якості аргументу і повертає суму всіх елементів масиву
 
-/*const user = {
-    name: 'Grisha',
-    surname: 'Pupkin',
-    age: 16,
-    'favorite book': 'A Little Prince',
-    pet: 'hamster'
-}
+const array = [3, 6, 8, 2, 3, 5, 1];
 
-function tic(user) {
-    for(let key in user) {
-    console.log(`"${key}": *${user[key]}*`);
-}
-
-}*/
-
-//task 2
-
-const departmentSalary = {
-    HR: 20000,
-    development: 100000000,
-    drivers: 3000,
-    assistans: 10000,
-    marketing: undefined
-}
-
-function total(departmentSalary) {
+function mass(array) {
     let sum = 0;
 
-    for(let key in departmentSalary) {
-        if (typeof departmentSalary [key] === 'number') {
-            sum = sum + departmentSalary [key];
-        }
+    for (let i = 0; i < array.length; i++) {
+        sum = sum + array[i];
     }
     return sum;
 }
-console.log(total(departmentSalary));
+console.log(mass(array));
+
+/*
+Дано масив [3, 6, 8, 2, 3, 5, 1]. Написати функцію, яка знаходить найбільше значення серед масива.
+Підказки.
+1. Потрібно десь запам'ятати найбільше число, яке ми зустріли.
+2. Порівняти це число з наступним елементом масиву.
+Якщо поточний елемент масиву, який ми розглядаємо, опиниться більшим ніж той елемент масиву, який ми запам'ятали, то саме цей елемент стає нашим найбільшим числом, яке ми запам'ятовуємо.
+
+Організація перевірок (приклад не на масивах, але з масивами суть буде та сама):
+
+let num = 5;
+let num2 = 4;
+
+if (num > num2) {
+    // ідемо далі
+} else {
+    num = num2;
+} */
+
+const array2 = [3, 6, 8, 2, 3, 5, 1];
+
+function more(array2) {
+    let num = array2[0];
+
+    for(let i = 0; i < array2.length; i++){
+        if(array2[i] > num) {
+            num = array2[i];
+        }
+    } 
+    return num;
+}
+console.log(more(array2));
+
+
+/* Написати функцію, яка знаходить середнє арифметичне всіх елементів масиву.
+
+Середнє арифметичне = сума всіх елементів / кількість елементів
+
+[3, 6, 8, 2, 3, 5, 1] // середнє арифметичне = 4 */
+
+const array3 = [3, 6, 8, 2, 3, 5, 1];
+
+function sum(array3) {
+    let middle = 0;
+    
+    for (let i = 0; i < array3.length; i++) {
+        middle = middle + array3[i];
+    }
+    let result = middle / array3.length;
+    return result;
+}
+console.log(sum(array3));
+
+
