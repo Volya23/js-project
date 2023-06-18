@@ -1,55 +1,168 @@
-//1. З масиву [1, 2, 3, 4, 5] зробіть масив [1, 4, 5]
+//Дано масив об'єктів. Задача. Створити новий масив користувачів, об'єкти мають бути у такому вигляді:
+/*{
+    fullname: 'John Doe',
+    age: ....,
+    email: .....
+}*/
 
-const array = [1, 2, 3, 4, 5];
-array.splice(1, 2);
+const users = [
+{
+name: 'John',
+lastName: 'Doe',
+age: 18,
+email: 'meil@com'
+},
+{
+name: 'Jane',
+lastName: 'Doe',
+age: 20,
+email: 'meil@com'
+},
+{
+name: 'Josh',
+lastName: 'Doe',
+age: 17,
+email: 'meil@com'
+},
+{
+name: 'Jake',
+lastName: 'Doe',
+age: 21,
+email: 'meil@com'
+},
+{
+name: 'Jackson',
+lastName: 'Doe',
+age: 17,
+email: 'meil@com'
+},
+]
 
-//2. З масиву [1, 2, 3, 4] запишіть в новий масив [2, 3, 4]
+function fullName(user) {
+    return {
+        fullName: `${user.name} ${user.lastName}`,
+        age: user.age,
+        email: user.email,
+    }
+}
 
-const array1 = [1, 2, 3, 4];
-array1.shift();
-//const newArray = array1.slice(1); другий варіант
+const newUsers = users.map ((item) => {
+    return fullName (item);
+});
 
-//3. З масиву [1, 2, 3, 4, 5] зробіть масив [1, 'w', 'tr-td', 2, 3, 4, 'vv', 5, 'aa']
+  
+// task 2
 
-const array2 = [1, 2, 3, 4, 5];
-array2.splice(1, 0, 'w', 'tr-td');
-array2.splice(6, 0, 'vv');
-array2.splice(8, 0, 'aa'); //array2.push('aa')
- 
-//1. Дано два масиви: [1,2,3] і [4,5,6]. Об'єднайте їх у масив [1,2,3,4,5,6]
+/*Дано масив об'єктів. Задача. Створити новий масив користувачів. У новий масив мають потрапити тільки повнолітні користувачі. Об'єкти, при цьому, мають бути у такому вигляді:
+{
+    fullname: 'John Doe',
+    email: .....
+} */
 
-const array3 = [1,2,3];
-const array4 = [4,5,6];
-const array5 = array.concat(array3, array4);
+const usersi = [
+{
+name: 'John',
+lastName: 'Doe',
+age: 18,
+email: 'meil@com'
+},
+{
+name: 'Jane',
+lastName: 'Doe',
+age: 20,
+email: 'meil@com'
+},
+{
+name: 'Josh',
+lastName: 'Doe',
+age: 17,
+email: 'meil@com'
+},
+{
+name: 'Jake',
+lastName: 'Doe',
+age: 21,
+email: 'meil@com'
+},
+{
+name: 'Jackson',
+lastName: 'Doe',
+age: 17,
+email: 'meil@com'
+},
+]
 
-//2. Даний масив [1,2,3]. Зробіть з нього масив [3,2,1].
+function adult (useri) {
+    if (useri.age >= 18) {
+        return {
+        fullName: `${useri.name} ${useri.lastName}`,
+        email: useri.email,
+    }
+    }
+    
+}
 
-const array6 = [1,2,3];
-array6.reverse();
+const newUsersi = usersi.map ((item) => {
+    return adult (item);
+});
 
-//3. Даний масив [3,4,5]. Додайте йому в кінець елементи 4, 8, 10.
 
-const array7 = [3, 4, 5];
-array7.push (4, 8, 10);
+// task 3
 
-//4. Даний масив ['aaa', 'bbb', 'ccc']. Виведіть в консоль останній елемент та видаліть його з масива.
+// Дано масив об'єктів. Створити новий масив, який складається тільки з імен котів
 
-const array8 = ['aaa', 'bbb', 'ccc'];
-console.log(array8.pop());
+const catArray = [
+    {
+        name: 'Murzik',
+        color: 'black',
+        weight: 3,
+        age: 2
+    },
+    {
+        name: 'Murka',
+        color: 'grey',
+        weight: 5,
+        age: 3
+    },
+    {
+        name: 'Barsik',
+        color: 'red',
+        weight: 2,
+        age: 1
+    },
+    {
+        name: 'Cookie',
+        color: 'brown',
+        weight: 5,
+        age: 2
+    },
+    {
+        name: 'Stus',
+        color: 'grey',
+        weight: 2,
+        age: 5
+    },
+    {
+        name: 'Fagot',
+        color: 'black',
+        weight: 5,
+        age: 3
+    },
+    {
+        name: 'Kit',
+        color: 'pink',
+        weight: 2,
+        age: 1
+    },
 
-//5. Даний масив ['3', 7, 10]. Додайте йому на початок елементи 2, 8.
+];
 
-const array9 = ['3', 7, 10];
-array9.unshift(2, 8);
+function name(cats) {
+    return {
+        name: `${cats.name}`,
+    }
+}
 
-//6. Дано масив ['3', 7, 10]. Отримайте з нього рядок.
-
-const array10 = ['3', 7, 10];
-array10.join('+');
-
-//7. Є масив: const arr = [2, 44, 11, 234, 8, 2, 4, 1] Зробити новий масив, всі елементи якого = елемент зі старого масиву + 100
-
-const array11 = [2, 44, 11, 234, 8, 2, 4, 1];
-array11.forEach((key) => {
-    console.log(key + 100);
-})
+const newcats = catArray.map ((item) => {
+    return name (item);
+});
