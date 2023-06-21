@@ -1,168 +1,56 @@
-//Дано масив об'єктів. Задача. Створити новий масив користувачів, об'єкти мають бути у такому вигляді:
-/*{
-    fullname: 'John Doe',
-    age: ....,
-    email: .....
-}*/
+//(sort)
 
-const users = [
-{
-name: 'John',
-lastName: 'Doe',
-age: 18,
-email: 'meil@com'
-},
-{
-name: 'Jane',
-lastName: 'Doe',
-age: 20,
-email: 'meil@com'
-},
-{
-name: 'Josh',
-lastName: 'Doe',
-age: 17,
-email: 'meil@com'
-},
-{
-name: 'Jake',
-lastName: 'Doe',
-age: 21,
-email: 'meil@com'
-},
-{
-name: 'Jackson',
-lastName: 'Doe',
-age: 17,
-email: 'meil@com'
-},
-]
+//Створіть масив чисел. Відсортуйте його у порядку зростання / спадання
 
-function fullName(user) {
-    return {
-        fullName: `${user.name} ${user.lastName}`,
-        age: user.age,
-        email: user.email,
+const array = [5, 9, 7, 45, 16];
+    array.sort (function (a, b) {
+        return a - b;
+    });
+    console.log(array);
+
+    array.sort (function (a, b) {
+        return b - a;
+    });
+    console.log(array);
+
+
+//(filter)
+
+//Створити новий масив, в який увійдуть тільки парні елементи початкового масиву
+
+const array1 = [3, 8, 67, 23, 6];
+    function pairNum (num) {
+        if (num % 2 === 0) {
+            return true
+        } else {
+            return false
+        }
     }
-}
+console.log(array1.filter(pairNum));
 
-const newUsers = users.map ((item) => {
-    return fullName (item);
-});
 
-  
-// task 2
+//(reduce)
 
-/*Дано масив об'єктів. Задача. Створити новий масив користувачів. У новий масив мають потрапити тільки повнолітні користувачі. Об'єкти, при цьому, мають бути у такому вигляді:
-{
-    fullname: 'John Doe',
-    email: .....
-} */
+//У вас є масив чисел. * Знайдіть суму елементів масиву. ** Знайдіть суму тільки парних елементів масиву
 
-const usersi = [
-{
-name: 'John',
-lastName: 'Doe',
-age: 18,
-email: 'meil@com'
-},
-{
-name: 'Jane',
-lastName: 'Doe',
-age: 20,
-email: 'meil@com'
-},
-{
-name: 'Josh',
-lastName: 'Doe',
-age: 17,
-email: 'meil@com'
-},
-{
-name: 'Jake',
-lastName: 'Doe',
-age: 21,
-email: 'meil@com'
-},
-{
-name: 'Jackson',
-lastName: 'Doe',
-age: 17,
-email: 'meil@com'
-},
-]
-
-function adult (useri) {
-    if (useri.age >= 18) {
-        return {
-        fullName: `${useri.name} ${useri.lastName}`,
-        email: useri.email,
-    }
-    }
+// *
+const array2 = [5, 90, 76, 4, 9, 4];
+    function red(a, b) {
+        return a + b
+    };
     
-}
+const sum = array2.reduce(red, 0);
+console.log(sum);
+   
+// **
 
-const newUsersi = usersi.map ((item) => {
-    return adult (item);
-});
+const array21 = [5, 90, 76, 4, 9, 4];
+        const tr1 = array21.reduce ((sum, key) => {
+            if (key %2 === 0) {
+                sum += key;
+            }
+            return sum;
+        }, 0);
+        console.log(tr1);
 
 
-// task 3
-
-// Дано масив об'єктів. Створити новий масив, який складається тільки з імен котів
-
-const catArray = [
-    {
-        name: 'Murzik',
-        color: 'black',
-        weight: 3,
-        age: 2
-    },
-    {
-        name: 'Murka',
-        color: 'grey',
-        weight: 5,
-        age: 3
-    },
-    {
-        name: 'Barsik',
-        color: 'red',
-        weight: 2,
-        age: 1
-    },
-    {
-        name: 'Cookie',
-        color: 'brown',
-        weight: 5,
-        age: 2
-    },
-    {
-        name: 'Stus',
-        color: 'grey',
-        weight: 2,
-        age: 5
-    },
-    {
-        name: 'Fagot',
-        color: 'black',
-        weight: 5,
-        age: 3
-    },
-    {
-        name: 'Kit',
-        color: 'pink',
-        weight: 2,
-        age: 1
-    },
-
-];
-
-function name(cats) {
-    return {
-        name: `${cats.name}`,
-    }
-}
-
-const newcats = catArray.map ((item) => {
-    return name (item);
-});
