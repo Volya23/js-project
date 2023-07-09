@@ -1,21 +1,51 @@
-/* (rest)
+/* Написати функцію truncate, яка приймає в якості аргументів рядок (str) і довжину (strLength).
 
-Напишіть функцію, яка приймає масив і сумує всі числа в цьому масиві (reduce).
-Функція має бути стрілкова */
+Якщо довжина > strLength, то врізати рядок до цієї довжини і в кінці додати "...".
+
+Якщо рядок менший, то нічого не робити.
+
+Приклади роботи функції:
+
+truncate('hello', 2); // 'he...'
+truncate('hello', 10); // 'hello'
+*/
+
+function truncate (str, strLength) {
+    if (str.length <= strLength) {
+        return str;
+    }
+    
+    const word = str.slice (0, strLength);
+    return word + '...';
+}
 
 
-const arrowFun = (...rest) => rest.reduce ((total, amount) => total + amount);
+/*Написати функцію checkSpam, яка повертає true, якщо переданий рядок містить слова 'xxx' або 'viagra', інакше 'false'
+
+Приклади роботи функції:
+
+checkSpam('buy ViAgRa now'); // true
+checkSpam('free xxxxxx'); // true
+checkSpam('innocent rabbit'); // false */
+
+function checkSpam(rule) {
+    const letter = rule.toLowerCase();
+    return letter.includes ('xxx') || letter.includes ('viagra'); 
+    
+}
 
 
-/*(spread)
+/*Написати функію, яка перевіряє, чи є переданий рядок паліндромом. При тому, функція має працювати таким чином, що вона не повинна зважати на регістр.
 
-Є 2 масиви:
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [10, 11, 12, 13, 14, 15];
+Довідка.
+Паліндром - це коли рядок з обох сторін читається однаково.
 
-Задача:
-Зклейте два масиви в один, не використовуючи concat */
+Приклади.
+'Anna' - паліндром
+'Mama' - не паліндром
+'Namman' - паліндром
+'2002' - паліндром */
 
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [10, 11, 12, 13, 14, 15];
-const arr = [... arr1, ... arr2];
+    function palindrom (list) {
+        return list.toLowerCase().split('').reverse().join('') === list.toLowerCase();
+    }
