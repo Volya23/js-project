@@ -1,51 +1,21 @@
-/* Написати функцію truncate, яка приймає в якості аргументів рядок (str) і довжину (strLength).
+/*Написати клас Worker.
 
-Якщо довжина > strLength, то врізати рядок до цієї довжини і в кінці додати "...".
+У працівника є ім'я, прізвище, ставка за робочий день і кількість у цьому місяці.
+Крім того, є метод, який повертає заробітню плату цього робітника за поточний місяць =) */
 
-Якщо рядок менший, то нічого не робити.
-
-Приклади роботи функції:
-
-truncate('hello', 2); // 'he...'
-truncate('hello', 10); // 'hello'
-*/
-
-function truncate (str, strLength) {
-    if (str.length <= strLength) {
-        return str;
+class Worker {
+    constructor (name, lastName, rate, count) {
+        this.name = name;
+        this.lastName = lastName;
+        this.rate = rate;
+        this.count = count;
     }
-    
-    const word = str.slice (0, strLength);
-    return word + '...';
+
+    getSalary() {
+        return `${this.rate * this.count}`
+    }
 }
 
-
-/*Написати функцію checkSpam, яка повертає true, якщо переданий рядок містить слова 'xxx' або 'viagra', інакше 'false'
-
-Приклади роботи функції:
-
-checkSpam('buy ViAgRa now'); // true
-checkSpam('free xxxxxx'); // true
-checkSpam('innocent rabbit'); // false */
-
-function checkSpam(rule) {
-    const letter = rule.toLowerCase();
-    return letter.includes ('xxx') || letter.includes ('viagra'); 
-    
-}
-
-
-/*Написати функію, яка перевіряє, чи є переданий рядок паліндромом. При тому, функція має працювати таким чином, що вона не повинна зважати на регістр.
-
-Довідка.
-Паліндром - це коли рядок з обох сторін читається однаково.
-
-Приклади.
-'Anna' - паліндром
-'Mama' - не паліндром
-'Namman' - паліндром
-'2002' - паліндром */
-
-    function palindrom (list) {
-        return list.toLowerCase().split('').reverse().join('') === list.toLowerCase();
-    }
+const worker1 = new Worker ('Sara', 'Conar', 2000, 15);
+const worker2 = new Worker ('Pall', 'Wokker', 12000, 21);
+const worker3 = new Worker ('Bill', 'Croker', 6000, 10);
